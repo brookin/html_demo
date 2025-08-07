@@ -1,1 +1,20 @@
 <p>hello demo</p>
+
+<button id="openAppBtn">打开 App</button>
+
+<script>
+  document.getElementById('openAppBtn').addEventListener('click', function() {
+    // 替换为你的 Universal Link
+    var universalLink = 'https://www.smzdm.com/';
+    
+    // 尝试打开 Universal Link
+    window.location.href = universalLink;
+    
+    // 监听跳转失败（若 2 秒内未打开 App，则跳转备用链接）
+    setTimeout(() => {
+      // 备用链接：可跳转 App Store 或网页
+      const fallbackUrl = 'https://apps.apple.com/cn/app/your-app-id';
+      window.location.href = fallbackUrl;
+    }, 2000);
+  });
+</script>
